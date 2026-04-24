@@ -1862,3 +1862,168 @@ select:focus-visible {
     grid-template-columns: auto 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .app-shell {
+    max-width: 100%;
+    width: 100%;
+    padding: 8px 8px 20px;
+  }
+
+  .premium-hero {
+    padding: 14px 14px 12px;
+    border-radius: 22px;
+  }
+
+  .hero-card h1 {
+    font-size: 1.55rem;
+  }
+
+  .hero-copy {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .hero-summary {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .stat-chip {
+    padding: 10px 8px;
+  }
+
+  .screen-indicator {
+    top: 4px;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 16px;
+  }
+
+  .screen-indicator span {
+    padding: 7px 2px;
+    font-size: 11px;
+    border-radius: 12px;
+  }
+
+  .panel {
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .panel-heading {
+    margin-bottom: 12px;
+  }
+
+  .panel-heading h2 {
+    font-size: 1.08rem;
+  }
+
+  .live-score-panel {
+    position: static;
+    top: auto;
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .score-grid {
+    gap: 10px;
+  }
+
+  .score-card {
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .score-card strong {
+    min-height: 0;
+    margin: 10px 0 12px;
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+
+  .score-button {
+    min-height: 54px;
+    font-size: 1.5rem;
+  }
+
+  .match-status-banner,
+  .serve-banner,
+  .team-card,
+  .live-info-card {
+    padding: 12px;
+  }
+
+  .serve-banner strong,
+  .match-status-banner strong {
+    font-size: 1rem;
+  }
+
+  .court-panel {
+    padding: 12px;
+  }
+
+  .court {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 10px;
+    border-radius: 20px;
+    max-height: none;
+  }
+
+  .court::before,
+  .court::after,
+  .court-markings {
+    inset: 10px;
+  }
+
+  .court-slot {
+    width: 72px;
+    height: 104px;
+  }
+
+  .player-avatar,
+  .player-avatar.compact {
+    width: 72px;
+    height: 104px;
+  }
+
+  .player-avatar .human,
+  .player-avatar.compact .human {
+    width: 48px;
+    height: 70px;
+  }
+
+  .player-avatar::before,
+  .player-avatar.compact::before {
+    bottom: 30px;
+    width: 42px;
+  }
+
+  .avatar-meta {
+    min-height: 28px;
+  }
+
+  .avatar-meta strong {
+    font-size: 0.72rem;
+    padding: 0 4px;
+  }
+
+  .avatar-state {
+    min-width: 58px;
+    padding: 4px 6px;
+    font-size: 0.56rem;
+  }
+
+  .live-action-dock {
+    bottom: 6px;
+    padding: 8px;
+  }
+
+  .primary-action,
+  .ghost-action,
+  .player-actions button,
+  .segmented button {
+    min-height: 44px;
+  }
+}
