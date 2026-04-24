@@ -1058,8 +1058,8 @@ select:focus-visible {
 .head {
   top: 0;
   left: 50%;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   transform: translateX(-50%);
   border-radius: 50%;
   background:
@@ -1077,10 +1077,10 @@ select:focus-visible {
 }
 
 .torso {
-  top: 25px;
+  top: 22px;
   left: 50%;
-  width: 32px;
-  height: 40px;
+  width: 26px;
+  height: 32px;
   transform: translateX(-50%);
   border-radius: 14px 14px 12px 12px;
 }
@@ -1098,24 +1098,24 @@ select:focus-visible {
 }
 
 .female .torso {
-  width: 38px;
+  width: 30px;
   clip-path: polygon(16% 0%, 84% 0%, 100% 100%, 0% 100%);
 }
 
 .arm {
-  top: 30px;
-  width: 10px;
-  height: 33px;
+  top: 26px;
+  width: 8px;
+  height: 26px;
   border-radius: 999px;
 }
 
 .arm-left {
-  left: 18px;
+  left: 20px;
   transform: rotate(18deg);
 }
 
 .arm-right {
-  right: 18px;
+  right: 20px;
   transform: rotate(-22deg);
 }
 
@@ -1132,19 +1132,19 @@ select:focus-visible {
 }
 
 .leg {
-  top: 62px;
-  width: 10px;
-  height: 38px;
+  top: 52px;
+  width: 8px;
+  height: 30px;
   border-radius: 999px;
 }
 
 .leg-left {
-  left: 28px;
+  left: 29px;
   transform: rotate(8deg);
 }
 
 .leg-right {
-  right: 28px;
+  right: 29px;
   transform: rotate(-8deg);
 }
 
@@ -1152,8 +1152,8 @@ select:focus-visible {
   content: "";
   position: absolute;
   bottom: -4px;
-  width: 16px;
-  height: 6px;
+  width: 13px;
+  height: 5px;
   border-radius: 12px 12px 8px 8px;
   background: #f8fdff;
 }
@@ -1168,9 +1168,9 @@ select:focus-visible {
 
 .racket {
   top: 16px;
-  right: -1px;
-  width: 22px;
-  height: 38px;
+  right: 2px;
+  width: 18px;
+  height: 30px;
   border: 3px solid #efffff;
   border-radius: 14px 14px 16px 16px;
   transform: rotate(-26deg);
@@ -1190,10 +1190,10 @@ select:focus-visible {
 .racket::after {
   content: "";
   position: absolute;
-  bottom: -18px;
+  bottom: -14px;
   left: 50%;
   width: 4px;
-  height: 20px;
+  height: 15px;
   transform: translateX(-50%);
   border-radius: 999px;
   background: linear-gradient(180deg, #efffff, #bee8db);
