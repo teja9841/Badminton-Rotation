@@ -36,6 +36,7 @@
 html,
 body,
 #root {
+  width: 100%;
   min-height: 100%;
   margin: 0;
 }
@@ -50,6 +51,10 @@ html {
 body {
   background: transparent;
   color: var(--ink);
+  min-width: 320px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -95,9 +100,12 @@ select:focus-visible {
 .app-shell {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  width: 100%;
+  max-width: 480px;
   margin: 0 auto;
+  min-height: 100vh;
   padding: 14px 14px 32px;
+  box-sizing: border-box;
 }
 
 .premium-hero,
@@ -583,7 +591,7 @@ select:focus-visible {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
-  max-height: min(56vh, 420px);
+  max-height: none;
   padding: clamp(14px, 3vw, 20px);
   overflow: hidden;
   border-radius: 30px;
