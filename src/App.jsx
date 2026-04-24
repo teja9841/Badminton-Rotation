@@ -53,7 +53,13 @@ function loadState() {
   }
 }
 
-function PlayerAvatar({ player, serving, compact = false }) {
+function PlayerAvatar({
+  player,
+  serving,
+  compact = false,
+  showName = !compact,
+  showState = !compact || serving,
+}) {
   const avatarClass = [
     "player-avatar",
     compact ? "compact" : "",
@@ -68,7 +74,9 @@ function PlayerAvatar({ player, serving, compact = false }) {
     <div className={avatarClass}>
       <div className="human">
         {serving ? <span className="serve-arrow" /> : null}
-        <span className="head" />
+        <span className="head">
+          <span className="head-initial">{player.name.trim().charAt(0).toUpperCase()}</span>
+        </span>
         <span className="torso" />
         <span className="arm arm-left" />
         <span className="arm arm-right" />
@@ -76,10 +84,16 @@ function PlayerAvatar({ player, serving, compact = false }) {
         <span className="leg leg-right" />
         <span className="racket" />
       </div>
-      <div className="avatar-meta">
-        <strong>{player.name}</strong>
-        <span className={`avatar-state ${serving ? "serving" : player.status}`}>{serving ? "Serving" : player.status}</span>
-      </div>
+      {showName || showState ? (
+        <div className="avatar-meta">
+          {showName ? <strong>{player.name}</strong> : null}
+          {showState ? (
+            <span className={`avatar-state ${serving ? "serving" : player.status}`}>
+              {serving ? "Serving" : player.status}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -1059,6 +1073,19 @@ function App() {
                 <span className="session-pill active">{modeLabel}</span>
               </div>
 
+              <div className="live-info-row">
+                <div className="live-info-pill">
+                  <span>Status</span>
+                  <strong>{matchStatus.text}</strong>
+                </div>
+                <div className="live-info-pill">
+                  <span>Server</span>
+                  <strong>
+                    {state.players.find((player) => player.id === state.serveState?.playerId)?.name ?? "Waiting"}
+                  </strong>
+                </div>
+              </div>
+
               <div className="score-grid">
                 <div
                   className={`score-card team-a ${state.lastScoringTeam === "A" ? "point-win" : ""}`}
@@ -1078,18 +1105,6 @@ function App() {
                     +1
                   </button>
                 </div>
-              </div>
-
-              <div className={`match-status-banner status-${matchStatus.type}`}>
-                <span>Match Status</span>
-                <strong>{matchStatus.text}</strong>
-              </div>
-
-              <div className="serve-banner">
-                <span>Current Server</span>
-                <strong>
-                  {state.players.find((player) => player.id === state.serveState?.playerId)?.name ?? "Waiting for match"}
-                </strong>
               </div>
             </section>
 
@@ -1287,22 +1302,28 @@ function App() {
                       key={player.id}
                     >
                       <div className="leaderboard-rank">#{rank}</div>
-                      <PlayerAvatar compact player={player} serving={false} />
-                      <div className="leaderboard-main">
-                        <strong>{player.name}</strong>
-                        <span>{player.gender}</span>
+                      <div className="leaderboard-avatar">
+                        <PlayerAvatar compact player={player} serving={false} showName={false} showState={false} />
                       </div>
-                      <div className="leaderboard-stat">
-                        <strong>{player.totalPoints ?? 0}</strong>
-                        <span>Total Points</span>
-                      </div>
-                      <div className="leaderboard-stat">
-                        <strong>{player.matchesPlayed}</strong>
-                        <span>Matches</span>
-                      </div>
-                      <div className="leaderboard-stat">
-                        <strong>{average}</strong>
-                        <span>Avg / Match</span>
+                      <div className="leaderboard-details">
+                        <div className="leaderboard-main">
+                          <strong>{player.name}</strong>
+                          <span>{player.gender}</span>
+                        </div>
+                        <div className="leaderboard-metrics">
+                          <div className="leaderboard-stat">
+                            <strong>{player.totalPoints ?? 0}</strong>
+                            <span>Total Points</span>
+                          </div>
+                          <div className="leaderboard-stat">
+                            <strong>{player.matchesPlayed}</strong>
+                            <span>Matches</span>
+                          </div>
+                          <div className="leaderboard-stat">
+                            <strong>{average}</strong>
+                            <span>Avg / Match</span>
+                          </div>
+                        </div>
                       </div>
                     </article>
                   );

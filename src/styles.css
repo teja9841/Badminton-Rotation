@@ -763,28 +763,7 @@ select:focus-visible {
 
 .court-net::before,
 .court-net::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 88px;
-  height: 52px;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(circle at 50% 62%, #f9faf8 0%, #f3f5f2 58%, #eceeea 100%);
-  border: 14px solid #ff9628;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
-}
-
-.court-net::before {
-  top: -18px;
-  border-bottom: 0;
-  border-radius: 999px 999px 0 0;
-}
-
-.court-net::after {
-  bottom: -18px;
-  border-top: 0;
-  border-radius: 0 0 999px 999px;
+  display: none;
 }
 
 .shuttlecock {
@@ -1061,10 +1040,22 @@ select:focus-visible {
   width: 24px;
   height: 24px;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background:
     radial-gradient(circle at 35% 35%, #ffe7d2 0%, #ffd8ba 58%, #efbf99 100%);
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.head-initial {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 900;
+  color: #4a3429;
+  line-height: 1;
 }
 
 .head::before {
@@ -1484,7 +1475,7 @@ select:focus-visible {
 
 .leaderboard-card {
   display: grid;
-  grid-template-columns: auto auto 1fr repeat(3, auto);
+  grid-template-columns: auto auto minmax(0, 1fr);
   gap: 12px;
   align-items: center;
   padding: 14px;
@@ -1505,10 +1496,26 @@ select:focus-visible {
   font-weight: 900;
 }
 
+.leaderboard-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderboard-details {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
 .leaderboard-main,
 .leaderboard-stat {
   display: grid;
   gap: 4px;
+}
+
+.leaderboard-main strong {
+  font-size: 1rem;
 }
 
 .leaderboard-main strong,
@@ -1520,6 +1527,42 @@ select:focus-visible {
 .leaderboard-stat span {
   font-size: 0.8rem;
   color: var(--ink-soft);
+}
+
+.leaderboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.live-info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.live-info-pill {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 247, 243, 0.98));
+  border: 1px solid rgba(9, 33, 29, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.live-info-pill span {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.live-info-pill strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1.2;
 }
 
 .rank-gold {
@@ -1859,7 +1902,26 @@ select:focus-visible {
   }
 
   .leaderboard-card {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .leaderboard-details {
+    gap: 8px;
+  }
+
+  .leaderboard-main strong {
+    font-size: 0.95rem;
+  }
+
+  .leaderboard-main span,
+  .leaderboard-stat span {
+    font-size: 0.74rem;
+  }
+
+  .leaderboard-metrics {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
 
@@ -1926,6 +1988,24 @@ select:focus-visible {
     border-radius: 18px;
   }
 
+  .live-info-row {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .live-info-pill {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .live-info-pill span {
+    font-size: 11px;
+  }
+
+  .live-info-pill strong {
+    font-size: 14px;
+  }
+
   .score-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1933,27 +2013,27 @@ select:focus-visible {
   }
 
   .score-card {
-    padding: 12px;
-    min-height: 120px;
-    border-radius: 16px;
+    padding: 8px;
+    min-height: 96px;
+    border-radius: 14px;
   }
 
   .score-card span {
     font-size: 12px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .score-card strong {
     min-height: 0;
-    margin: 6px 0 10px;
-    font-size: 38px;
+    margin: 4px 0 8px;
+    font-size: 34px;
     line-height: 1;
   }
 
   .score-button {
-    min-height: 46px;
-    font-size: 22px;
-    border-radius: 14px;
+    min-height: 42px;
+    font-size: 20px;
+    border-radius: 12px;
   }
 
   .match-status-banner,
