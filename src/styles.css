@@ -1922,41 +1922,62 @@ select:focus-visible {
   .live-score-panel {
     position: static;
     top: auto;
-    padding: 14px;
-    border-radius: 22px;
+    padding: 10px;
+    border-radius: 18px;
   }
 
   .score-grid {
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
   .score-card {
     padding: 12px;
-    min-height: auto;
+    min-height: 120px;
+    border-radius: 16px;
+  }
+
+  .score-card span {
+    font-size: 12px;
+    margin-bottom: 6px;
   }
 
   .score-card strong {
     min-height: 0;
-    margin: 10px 0 12px;
-    font-size: 2.6rem;
+    margin: 6px 0 10px;
+    font-size: 38px;
     line-height: 1;
   }
 
   .score-button {
-    min-height: 54px;
-    font-size: 1.5rem;
+    min-height: 46px;
+    font-size: 22px;
+    border-radius: 14px;
   }
 
   .match-status-banner,
   .serve-banner,
   .team-card,
   .live-info-card {
-    padding: 12px;
+    padding: 10px;
+  }
+
+  .match-status-banner,
+  .serve-banner {
+    min-height: 56px;
+    border-radius: 16px;
+    margin-top: 8px;
+  }
+
+  .match-status-banner span,
+  .serve-banner span {
+    font-size: 11px;
   }
 
   .serve-banner strong,
   .match-status-banner strong {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .court-panel {
